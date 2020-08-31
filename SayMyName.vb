@@ -4,17 +4,23 @@
 'Say My Name
 'https://github.com/IanGunter/SayMyName.git
 
+'These parameters tell VB how it should read the code.
 Option Explicit On
 Option Strict On
+Option Compare Text
 
 Module SayMyName
 
     Sub Main()
+
         'Dim assigns the next work to whatever As is set as. 
         Dim Input As String
         Console.WriteLine("What Is your name")
 
+        'Input = Console.ReadLine sets the feedback typed into the console as the input string.
         Input = Console.ReadLine
+
+        'Group of questions presented to the user
         Console.WriteLine("Great " & Input & "!" & " Great News!")
         Console.WriteLine("I just need to get some more information from you!")
         Console.WriteLine("Where do you live?")
@@ -37,16 +43,23 @@ Module SayMyName
         'If input allows for different scenerios to play depending on user feedback.
         Console.WriteLine("Are you allergic to Oats?!")
         Input = Console.ReadLine()
-        If Input = "Shutup" Then Console.Beep(4000, 5000)
-        If Input = "shutup" Then Console.Beep(4000, 5000)
-        If Input = "Stop" Then Console.Beep(4000, 5000)
-        If Input = "stop" Then Console.Beep(4000, 5000)
+
+        'My.Computer.Audio.Play.(My.Resources.dont_touch_me, AudioPlayMode.WaitToComplete) plays a sound file uploaded into code recourses. 
+        'Code references can be accessedin the project solution tab under, My Project.
+        If Input = "Shutup" Then My.Computer.Audio.Play(My.Resources.dont_touch_me, AudioPlayMode.WaitToComplete)
+        If Input = "Stop" Then My.Computer.Audio.Play(My.Resources.dont_touch_me, AudioPlayMode.WaitToComplete)
 
         Console.WriteLine("Would You like to watch a video? Yes or No?")
         Input = Console.ReadLine()
         'If input allows for different scenerios to play depending on user feedback.
         If Input = "Yes" Then Process.Start("https://youtu.be/G9FGgwCQ22w?t=107")
-        If Input = "yes" Then Process.Start("https://youtu.be/G9FGgwCQ22w?t=107")
+
+
+
+
+
+
+
     End Sub
 
 End Module
