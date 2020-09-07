@@ -14,14 +14,14 @@ Module SayMyName
     Sub Main()
 
         'Dim assigns the next work to whatever As is set as. 
-        Dim Input As String
+        Dim input As String
         Console.WriteLine("What Is your name")
 
         'Input = Console.ReadLine sets the feedback typed into the console as the input string.
-        Input = Console.ReadLine
+        input = Console.ReadLine
 
         'Group of questions presented to the user
-        Console.WriteLine("Great " & Input & "!" & " Great News!")
+        Console.WriteLine("Great " & input & "!" & " Great News!")
         Console.WriteLine("I just need to get some more information from you!")
         Console.WriteLine("Where do you live?")
         Console.ReadLine()
@@ -42,17 +42,18 @@ Module SayMyName
 
         'If input allows for different scenerios to play depending on user feedback.
         Console.WriteLine("Are you allergic to Oats?!")
-        Input = Console.ReadLine()
+        input = Console.ReadLine()
 
         'My.Computer.Audio.Play.(My.Resources.dont_touch_me, AudioPlayMode.WaitToComplete) plays a sound file uploaded into code recourses. 
         'Code references can be accessedin the project solution tab under, My Project.
-        If Input = "Shutup" Then My.Computer.Audio.Play(My.Resources.dont_touch_me, AudioPlayMode.WaitToComplete)
-        If Input = "Stop" Then My.Computer.Audio.Play(My.Resources.dont_touch_me, AudioPlayMode.WaitToComplete)
+        If input = "Shutup" Or input = "Stop" Then
+            My.Computer.Audio.Play(My.Resources.dont_touch_me, AudioPlayMode.WaitToComplete)
+        End If
 
         Console.WriteLine("Would You like to watch a video? Yes or No?")
-        Input = Console.ReadLine()
+        input = Console.ReadLine()
         'If input allows for different scenerios to play depending on user feedback.
-        If Input = "Yes" Then Process.Start("https://youtu.be/G9FGgwCQ22w?t=107")
+        If input = "Yes" Then Process.Start("https://youtu.be/G9FGgwCQ22w?t=107")
 
 
 
